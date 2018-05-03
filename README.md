@@ -27,7 +27,7 @@ firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [ma
   ### links
   just copy the filler links in the bookmark container and add your own!
 
-  ###adding sites to search
+  adding sites to search
   add a definition to the searchmod dictionary with the following infortmation (example below)
 
   ```javascript
