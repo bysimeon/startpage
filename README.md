@@ -35,5 +35,5 @@ add a definition to the searchmod dictionary with the following infortmation (ex
 - the key is the what you type before your querty to search that site
 - the first element is the name displayed above the searchbar
 - the second element is the site's base search url
-- the third element is the background for the searchbox (i reconmend gradients)
+- the third element is the background for the searchbox (i recommend gradients)
 - the fourth element is the color of the name displated above the searchbox
