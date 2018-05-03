@@ -1,4 +1,5 @@
-# startpage
+# startpage [[demo]](https://www.bysimeon.com/start.html)
+
 /r/startpage or **new tab page**
 
 firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](https://github.com/maxbeier/text-spinners) for the resources and inspiration.
