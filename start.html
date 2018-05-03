@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>launcher</title>
+  <link rel="stylesheet" href="https://maxbeier.github.io/text-spinners/spinners.css">
+  <link href="assets/favicon.png" rel="shortcut icon" type="imtage/x-icon" />
+</head>
+
+<body>
+  <div class="top">
+    <div class="corner" id="back">
+      <a href="http://www.bysimeon.com">bysimeon</a>
+    </div>
+    <div class="corner" id="searchlink">
+      <a onclick="opensearchbox()">search</a>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="corner" id="songb">
+      <a id="song" href="#">
+        <span class="loading"></span>
+      </a>
+    </div>
+    <div class="corner" id="help">
+      <a onclick="commands()">help</a>
+    </div>
+  </div>
+  <div id="command">
+    <div id="close1">
+      <a onclick="closeall()"> close </a>
+    </div>
+    <div id="command-list">
+      press
+      <span> space </span> to open searchbox,
+      <span> google </span> is used by default. enter a
+      <span> url </span> to open that webpage. search specific sites by using one of the following shortcuts before your query:
+      <ul>
+        <li> reddit (r:)</li>
+        <li> subreddits (r/examplesubreddit goes to examplesubreddit) </li>
+        <li> youtube (y:) </li>
+        <li> soundcloud (s:) </li>
+        <li> twitch (t:) [game names] </li>
+        <li> myanimelist (a:)</li>
+        <li> google drive (d:)</li>
+        <li> github (g:)</li>
+        <li> lastfm (l:)</li>
+        <li> netflix (n:)</li>
+        <li> unsplash (u:)</li>
+      </ul>
+      press
+      <span> esc </span> to close searchbox and this help page.
+    </div>
+  </div>
+  <div id="search">
+    <div id="close2">
+      <a onclick="closeall()"> close </a>
+    </div>
+    <div id="search-mode"> google </div>
+    <input id="search-field" type="text" name="search-field" onkeyup="return search(event)" />
+  </div>
+  <div class="container">
+    <div id="clock"></div>
+    <div id="date"> 4 / 14 / 2018 </div>
+    <div class="weather-container">
+      <div class="row">
+        <div id="weather-description" class="inline"></div>
+        <div class="inline">-</div>
+        <div id="temp" class="inline"></div>
+      </div>
+    </div>
+    <div class="bookmark-container">
+      <div class="bookmark-set">
+        <div class="bookmark-title">...</div>
+        <div class="bookmark-inner-container">
+          <a class="bookmark" href="https://google.com/">add links</a>
+        </div>
+      </div>
+      <div class="bookmark-set">
+        <div class="bookmark-title">...</div>
+        <div class="bookmark-inner-container">
+          <a class="bookmark" href="https://google.com/">add links</a>
+        </div>
+      </div>
+      <div class="bookmark-set">
+        <div class="bookmark-title">...</div>
+        <div class="bookmark-inner-container">
+          <a class="bookmark" href="https://google.com/">add links</a>
+        </div>
+      </div>
+      <div class="bookmark-set">
+        <div class="bookmark-title">...</div>
+        <div class="bookmark-inner-container">
+          <a class="bookmark" href="https://google.com/">add links</a>
+        </div>
+      </div>
+      <div class="bookmark-set">
+        <div class="bookmark-title">...</div>
+        <div class="bookmark-inner-container">
+          <a class="bookmark" href="https://google.com/">add links</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  // LASTFM
+
+  apikey = ""; // FILL IN
+  apibase = "https://ws.audioscrobbler.com/2.0/";
+  user = ""; // FILL IN
+
+  function recenttrack() {
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open('GET', apibase + "?method=user.getrecenttracks&user=" + user + "&api_key=" + apikey + "&format=json");
+    xhr2.onload = () => {
+      if (xhr2.readyState === 4) {
+        if (xhr2.status === 200) {
+          let json2 = JSON.parse(xhr2.responseText);
+          songname = json2.recenttracks.track[0].name;
+          artistname = json2.recenttracks.track[0].artist['#text'];
+          noscrobble = "nothing playing"
+          if (typeof json2.recenttracks.track[0]['@attr'] === 'undefined') {
+            playing = false;
+          } else {
+            playing = json2.recenttracks.track[0]['@attr'].nowplaying;
+          }
+          if (songname.length >= 50) {
+            if (songname.includes('(f')) {
+              songname = (songname.substr(0, songname.indexOf(' (f')));
+            } else {
+              songname = (songname.substr(0, 50)) + "...";
+            }
+          }
+          if (playing) {
+            document.getElementById('song').innerHTML = songname + " - " + artistname;
+            document.getElementById('song').setAttribute("href", json2.recenttracks.track[0].url);
+            sessionStorage.setItem('song', songname + " - " + artistname);
+            sessionStorage.setItem('songurl', json2.recenttracks.track[0].url);
+          } else {
+            // document.getElementById('song').innerHTML = noscrobble;
+            document.getElementById('song').setAttribute("href", "https://www.last.fm/user/theblindlookout");
+          }
+        } else {
+          console.log('error msg: ' + xhr.status);
+        }
+      }
+    }
+    xhr2.send();
+  }
+
+  // SEARCH 
+
+  var searchengine = "";
+  var searchmod = {
+    "s:": ["soundcloud", "https://soundcloud.com/search?q=", "(to right, #fe8c00, #f83600)", "#fe8c00"],
+    "y:": ["youtube", "https://www.youtube.com/results?search_query=", "(to right, #e52d27, #b31217)", "#e52d27"],
+    "t:": ["twitch", "https://www.twitch.tv/directory/game/", "(to right, #6441a5, #2a0845)", "#6441a5"],
+    "a:": ["myanimelist", "https://myanimelist.net/search/all?q=", "(to right, #1488cc, #2e51a2)", "#1488cc"],
+    "r:": ["reddit", "https://www.reddit.com/search?q=", "(to right, #5f99cf, #cee3f8)", "#5f99cf", "#1488cc"],
+    "r/": ["subreddit", "https://www.reddit.com/r/", "(to right, #5f99cf, #cee3f8)", "#5f99cf"],
+    "d:": ["google drive", "https://drive.google.com/drive/u/0/search?q=", "(to right, #4285f4, #fbbc05)", "#4285f4"],
+    "l:": ["lastfm", "https://www.last.fm/search?q=", "(to right, #d51007, #d32d27)", "#d51007"],
+    "g:": ["github", "https://github.com/search?utf8=%E2%9C%93&q=", "(to right, #767676, #999)", "#767676"],
+    "u:": ["unsplash", "https://unsplash.com/search/photos/", "(to right, #485563, #29323c)", "#485563"],
+    "n:": ["netflix", "https://www.netflix.com/search?q=", "(to right, #e50914, #e50914)", "#e50914"]
+  };
+
+  function clear() {
+    document.getElementById("search-field").style.background = "#000";
+    searchengine = "";
+    document.getElementById("search-mode").innerHTML = "google";
+    document.getElementById("search-mode").style.color = "black ";
+  }
+
+  function cutoff(num, str) {
+    if (str.substring(0, 1) != " ") {
+      num2 = num - 1;
+    }
+    num2 = num;
+    return num2
+  }
+
+  function search(e) {
+    var val = document.getElementById("search-field").value;
+    var key = val.substr(0, (cutoff(3, val))).trim().toLowerCase();
+    console.log(key);
+
+    if (val.length <= cutoff(3, val)) {
+      if (key in searchmod) {
+        searchengine = key;
+        document.getElementById("search-field").style.background = "-webkit-linear-gradient" + searchmod[key][2];
+        document.getElementById("search-field").style.background = "linear-gradient" + searchmod[key][2];
+        document.getElementById("search-mode").style.color = searchmod[key][3];
+        document.getElementById("search-mode").style.color = searchmod[key][3];
+        document.getElementById("search-mode").innerHTML = searchmod[key][0];
+      }
+    }
+
+    if (!val.includes(":") && !val.includes("/")) {
+      clear();
+    }
+
+    if (e.keyCode == 13) {
+      if (searchengine != "") {
+        window.open((searchmod[key][1]) + val.substr(cutoff(3, val)).trim(), "_self");
+      } else if (val.includes('.com') || val.includes('.net') || val.includes('.co') ||
+        val.includes('.io') || val.includes('.xyz') || val.includes('.gov') || val.includes('.org') || val.includes(
+          '.se') ||
+        val.includes('.fm') || val.includes('.de') || val.includes('.uk') || val.includes('.gg') || val.includes(
+          '.info') ||
+        val.includes('.ai') || val.includes('.ch') || val.includes('.edu') || val.includes('.gl') || val.includes('.nz') ||
+        val.includes('.so')) {
+        if (val.includes('http')) {
+          window.open(val.trim(), "_self");
+        } else {
+          window.open("http://" + val.trim(), "_self");
+        }
+      } else {
+        window.open("https://google.com/search?q=" + val.trim(), "_self");
+      }
+    }
+  }
+
+  document.addEventListener("keydown", event => {
+    if (event.keyCode == 32) { // Spacebar code to open search
+      opensearchbox();
+    } else if (event.keyCode == 27) { // Esc to close search
+      closeall();
+    }
+  });
+
+  function commands() {
+    document.getElementById('command').style.display = 'flex';
+    document.getElementById('command-list').focus();
+  }
+
+  function opensearchbox() {
+    document.getElementById('search').style.display = 'flex';
+    document.getElementById('search-field').focus();
+  }
+
+  function closeall() {
+    document.getElementById('search-field').value = '';
+    document.getElementById('search-field').blur();
+    document.getElementById('search').style.display = 'none';
+    document.getElementById('command').style.display = 'none';
+    document.getElementById('command-list').blur();
+    clear();
+  }
+
+  // DATE AND TIME 
+
+  const monthNames = ["january", "february", "march", "april", "may", "june",
+    "july", "august", "september", "october", "november", "december"
+  ];
+
+  const dayNames = ["", "first", "second", "third", "fourth", "fifth", "sixth",
+    "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth",
+    "fiftheenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentyith", "twentyfirst",
+    "twenysecond", "twentythird", "twenyfourth", "twenyfifth", "twenysixth", "twenysevenph", "twenyayth",
+    "twenyninth", " thirtyith", "thirtyfirst"
+  ];
+
+  function getTime() {
+    let date = new Date(),
+      min = date.getMinutes(),
+      sec = date.getSeconds(),
+      hour = date.getHours();
+
+    return "" +
+      (hour < 10 ? ("0" + hour) : hour) + ":" +
+      (min < 10 ? ("0" + min) : min) + ":" +
+      (sec < 10 ? ("0" + sec) : sec);
+  }
+
+  function getDay() {
+    let date = new Date(),
+      day = dayNames[date.getDate()];
+    month = monthNames[date.getMonth()];
+
+    return "" + month + " " + day;
+  }
+
+  // WEATHER
+
+  function theweather() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET',
+      'http://api.openweathermap.org/data/2.5/weather?zip=60201,us&units=Imperial&appid=4119dfca25e96bf1f10f35a975835f6c'
+    );
+    xhr.onload = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          let json = JSON.parse(xhr.responseText);
+          document.getElementById("temp").innerHTML = json.main.temp.toFixed(0) + "&#176 f";
+          document.getElementById("weather-description").innerHTML = json.weather[0].description;
+        } else {
+          console.log('error msg: ' + xhr.status);
+        }
+      }
+    }
+    xhr.send();
+  }
+
+  window.onload = () => {
+    // Clear Everything on Load
+    document.getElementById('search-field').value = '';
+    clear();
+
+    theweather();
+    setInterval(theweather, 6000000);
+
+    document.getElementById("clock").innerHTML = getTime();
+    document.getElementById("date").innerHTML = getDay();
+
+    setInterval(() => {
+      document.getElementById("clock").innerHTML = getTime();
+      document.getElementById("date").innerHTML = getDay();
+    }, 100);
+
+    recenttrack();
+    setInterval(recenttrack, 500);
+  }
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+  html {
+    font-family: Inconsolata, serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: calc(12px + .75vw);
+    text-transform: lowercase;
+  }
+
+  body {
+    margin: 0px;
+    /* overscroll-behavior: none; */
+    /* background: -webkit-linear-gradient(to bottom, #c9d6ff, #e2e2e2);
+    background: linear-gradient(to bottom, #c9d6ff, #e2e2e2); */
+  }
+
+  /* TEXT STYLING */
+
+  .strike {
+    text-decoration: line-through;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .current-page {
+    text-decoration: underline !important;
+  }
+
+  .button {
+    transition: transform .11s;
+    margin-top: .1rem;
+    height: 1.2rem;
+  }
+
+  .button:active {
+    color: red;
+    transform: translate(.1em, 0px);
+  }
+
+  /* TOP AND BOTTOM BARS */
+
+  .top {
+    width: 100vw;
+    /* border-bottom: black 1px solid; */
+    /* background: -webkit-linear-gradient(to right, #c9d6ff, #e2e2e2);
+  background: linear-gradient(to right, #c9d6ff, #e2e2e2); */
+    background: rgba(255, 255, 255, .55);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+  }
+
+  .bottom {
+    width: 100vw;
+    border-top: black 1px solid;
+    /* background: -webkit-linear-gradient(to right, #c9d6ff, #e2e2e2);
+  background: linear-gradient(to right, #c9d6ff, #e2e2e2); */
+    background: #fff;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+  }
+
+  .corner {
+    padding: 1rem;
+  }
+
+  .top div:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .top a:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  .top a,
+  .bottom a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .top a:hover,
+  .bottom a:hover {
+    text-decoration: line-through;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: line-through;
+  }
+
+  .bullet {
+    color: black;
+    font-size: 10rem;
+  }
+
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .top {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  #close1 {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  #close2 {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  #command {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  #command-list {
+    width: 90%;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: #000;
+    border: solid 0px #000;
+    font-family: Inconsolata;
+    color: #f2f2f2;
+    outline: none;
+    margin-bottom: 1rem;
+  }
+
+  #command-list>span {
+    text-transform: uppercase;
+  }
+
+  #search {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  #search-field {
+    width: 90%;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    background-color: #000;
+    border: solid 0px #000;
+    font-family: Inconsolata;
+    font-size: 3.5rem;
+    color: #f2f2f2;
+    outline: none;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #search-mode {
+    text-align: left;
+    width: 90%;
+    padding-bottom: .3rem;
+  }
+
+  #clock {
+    font-size: 6rem;
+    color: #000;
+    margin-bottom: .7rem;
+  }
+
+  .weather-container {
+    width: 70%;
+    padding: 1rem 1rem 0rem 1rem;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+  }
+
+  .inline {
+    display: inline-block;
+  }
+
+  .bookmark-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem 0rem;
+  }
+
+  @media screen and (max-width: 50rem) {
+    .container {
+      height: auto;
+    }
+    .weather-container {
+      width: 95%;
+    }
+    #clock {
+      margin-top: 1rem;
+    }
+    .container>.bookmark-container {
+      flex-direction: column;
+      width: 80%;
+    }
+    .bookmark-container>.bookmark-set {
+      width: auto;
+      margin: 1rem 0rem;
+      height: auto;
+    }
+    .corner:not(#songb) {
+      display: none;
+    }
+  }
+
+  .bookmark-set {
+    padding: 1rem;
+    font-size: .85rem;
+    width: 25%;
+    height: 15rem;
+    margin: 0rem .5rem;
+  }
+
+  .bookmark-inner-container {
+    overflow: visible;
+    height: 80%;
+    vertical-align: top;
+  }
+
+  .bookmark-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    margin: 0rem 0rem .9rem 0rem;
+  }
+
+  .bookmark {
+    text-decoration: none;
+    color: #383838;
+    display: block;
+    margin: .5rem 0rem;
+  }
+
+  .bookmark:hover {
+    font-weight: 500;
+    text-decoration: line-through;
+    /* font-size: 1.15em; */
+  }
+</style>
+
+</html>
