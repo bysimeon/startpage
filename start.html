@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>launcher</title>
   <link rel="stylesheet" href="https://maxbeier.github.io/text-spinners/spinners.css">
-  <link href="assets/favicon.png" rel="shortcut icon" type="imtage/x-icon" />
+  <link href="favicon.png" rel="shortcut icon" type="imtage/x-icon" />
 </head>
 
 <body>
   <div class="top">
-    <div class="corner" id="back">
-      <a href="http://www.bysimeon.com">bysimeon</a>
+    <div class="corner">
+      <img onclick="nextbackground()" class="button" src="favicon.png">
     </div>
     <div class="corner" id="searchlink">
       <a onclick="opensearchbox()">search</a>
@@ -51,7 +51,10 @@
         <li> unsplash (u:)</li>
       </ul>
       press
-      <span> esc </span> to close searchbox and this help page.
+      <span> esc </span> to close searchbox and this help page. 
+      <br>
+      <br>
+      <span id="bysimeon">- <a href="https://bysimeon.com">bysimeon</a> </span> 
     </div>
   </div>
   <div id="search">
@@ -306,6 +309,25 @@
     xhr.send();
   }
 
+  var backgrounds = [
+    ['linear-gradient(to right, #c9d6ff, #e2e2e2)', '-webkit-linear-gradient(to right, #c9d6ff, #e2e2e2)'],
+    ['#08AEEA', 'linear-gradient(78deg, #e2e2e2 0%, #2AF598 100%)'],
+    ['linear-gradient(to left, #d6ae7b, #eacda3)', 'linear-gradient(to left, #d6ae7b, #eacda3)'],
+    ['#fff', '#fff']
+  ]
+  //
+  var curr = 0;
+  var curr = localStorage.getItem('curr');
+  //
+  function nextbackground() {
+    document.body.style.background = backgrounds[curr % backgrounds.length][0];
+    document.body.style.backgroundImage = backgrounds[curr % backgrounds.length][1];
+    localStorage.setItem('back1', backgrounds[curr % backgrounds.length][0]);
+    localStorage.setItem('back2', backgrounds[curr % backgrounds.length][1]);
+    curr++;
+    localStorage.setItem('curr', curr);
+  }
+
   window.onload = () => {
     // Clear Everything on Load
     document.getElementById('search-field').value = '';
@@ -321,6 +343,9 @@
       document.getElementById("clock").innerHTML = getTime();
       document.getElementById("date").innerHTML = getDay();
     }, 100);
+
+    document.body.style.background = localStorage.getItem('back1');
+    document.body.style.background = localStorage.getItem('back2');
 
     recenttrack();
     setInterval(recenttrack, 500);
@@ -408,6 +433,10 @@
 
   .corner {
     padding: 1rem;
+  }
+
+  #bysimeon a{
+      color: white;
   }
 
   .top div:last-child {
