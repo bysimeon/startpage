@@ -6,7 +6,8 @@ firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [ma
 
 ## config
 
-  ### lastfm
+### lastfm
+
   to show your current scrobble from last.fm (or libre.fm), update the apikey and username.
 
   ```javascript
@@ -15,7 +16,8 @@ firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [ma
   user = ""; // FILL IN
   ```
 
-  ### weather
+### weather
+
   open weather map is being used. to set to your location. change the zip code in the api call.
 
   ```javascript
@@ -24,7 +26,8 @@ firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [ma
   );
   ```
 
-  ### links
+### links
+
   just copy the filler links in the bookmark container and add your own!
 
   adding sites to search
@@ -40,8 +43,8 @@ firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [ma
 - the third element is the background for the searchbox (i recommend gradients)
 - the fourth element is the color of the name displated above the searchbox
 
-
 ### background switcher
+
 you can toggle through background from by adding to the backgrounds array. (example below)
 
   ```javascript
