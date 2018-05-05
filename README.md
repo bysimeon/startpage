@@ -1,8 +1,10 @@
 # startpage [[demo]](https://www.bysimeon.com/start.html)
 
-/r/startpage or **new tab page**
+a [/r/startpage](https://www.reddit.com/r/startpages/) or [**new tab page**](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en)
 
-firstly, shout out to [JaredK3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](https://github.com/maxbeier/text-spinners) for the resources and inspiration.
+shout out to [jaredk3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](https://github.com/maxbeier/text-spinners) for the resources and inspiration.
+
+---
 
 ## config
 
