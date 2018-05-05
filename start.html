@@ -122,7 +122,7 @@
           let json2 = JSON.parse(xhr2.responseText);
           songname = json2.recenttracks.track[0].name;
           artistname = json2.recenttracks.track[0].artist['#text'];
-          noscrobble = "nothing playing"
+          noscrobble = "<span class=loading></span>"
           if (typeof json2.recenttracks.track[0]['@attr'] === 'undefined') {
             playing = false;
           } else {
@@ -142,7 +142,9 @@
             sessionStorage.setItem('songurl', json2.recenttracks.track[0].url);
           } else {
             // document.getElementById('song').innerHTML = noscrobble;
-            document.getElementById('song').setAttribute("href", "https://www.last.fm/user/theblindlookout");
+            document.getElementById('song').setAttribute("href", "https://www.last.fm/user/" + user);
+            sessionStorage.setItem("song", noscrobble);
+            sessionStorage.setItem("songurl", "https://www.last.fm/user/" + user);
           }
         } else {
           console.log('error msg: ' + xhr.status);
@@ -222,6 +224,7 @@
       } else {
         window.open("https://google.com/search?q=" + val.trim(), "_self");
       }
+      document.getElementById("search-mode").innerHTML = searchmod[searchengine][0] + '<span class="loading"></span>';
     }
   }
 
@@ -331,6 +334,8 @@
 
   window.onload = () => {
     // Clear Everything on Load
+    document.body.style.background = localStorage.getItem('back1');
+    document.body.style.background = localStorage.getItem('back2');
     document.getElementById('search-field').value = '';
     clear();
 
