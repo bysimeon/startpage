@@ -78,31 +78,26 @@
     </div>
     <div class="bookmark-container">
       <div class="bookmark-set">
-        <div class="bookmark-title">...</div>
         <div class="bookmark-inner-container">
           <a class="bookmark" href="https://google.com/">add links</a>
         </div>
       </div>
       <div class="bookmark-set">
-        <div class="bookmark-title">...</div>
         <div class="bookmark-inner-container">
           <a class="bookmark" href="https://google.com/">add links</a>
         </div>
       </div>
       <div class="bookmark-set">
-        <div class="bookmark-title">...</div>
         <div class="bookmark-inner-container">
           <a class="bookmark" href="https://google.com/">add links</a>
         </div>
       </div>
       <div class="bookmark-set">
-        <div class="bookmark-title">...</div>
         <div class="bookmark-inner-container">
           <a class="bookmark" href="https://google.com/">add links</a>
         </div>
       </div>
       <div class="bookmark-set">
-        <div class="bookmark-title">...</div>
         <div class="bookmark-inner-container">
           <a class="bookmark" href="https://google.com/">add links</a>
         </div>
@@ -360,218 +355,231 @@
 
 <style>
   a {
-  text-decoration: none !important;
-  color: black;
-  cursor: pointer;
-}
+    text-decoration: none !important;
+    color: black;
+    cursor: pointer;
+  }
 
-a:hover {
-  text-decoration: line-through !important;
-}
-.bullet {
-  color: black;
-  font-size: 10rem;
-}
+  a:hover {
+    text-decoration: line-through !important;
+  }
 
-.container {
-  width: 100%;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-.top {
-  background-color: rgba(0, 0, 0, 0) !important;
-}
+  .bullet {
+    color: black;
+    font-size: 10rem;
+  }
 
-#close1 {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  font-size: 1rem;
-  padding: 1rem;
-}
-
-#close2 {
-  position: fixed;
-  right: 0px;
-  top: 0px;
-  font-size: 1rem;
-  padding: 1rem;
-}
-
-.fade {
-  display: flex !important;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity .4s;
-  z-index: -1;
-}
-
-.show {
-    visibility: visible;
-    opacity: 1;
-}
-
-#command {
-  width: 100%;
-  height: 100vh;
-  background-color: #fff;
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-#command-list {
-  width: 90%;
-  padding: 2rem;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: #000;
-  border: solid 0px #000;
-  font-family: Inconsolata;
-  color: #f2f2f2;
-  outline: none;
-  margin-bottom: 1rem;
-}
-
-#command-list > span {
-  text-transform: uppercase;
-}
-
-#search {
-  width: 100%;
-  height: 100vh;
-  background-color: #fff;
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-#search-field {
-  width: 90%;
-  padding: 2rem 1rem;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: #000;
-  border: solid 0px #000;
-  font-family: Inconsolata;
-  font-size: 3.5rem;
-  color: #f2f2f2;
-  outline: none;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-#search-mode {
-  text-align: left;
-  width: 90%;
-  padding-bottom: 0.3rem;
-}
-
-#clock {
-  font-size: 6rem;
-  color: #000;
-  margin-bottom: 0.7rem;
-}
-
-.weather-container {
-  width: 70%;
-  padding: 1rem 1rem 0rem 1rem;
-  font-size: 1rem;
-  color: #000;
-  text-align: center;
-}
-
-.inline {
-  display: inline-block;
-}
-
-.bookmark-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 1rem 0rem;
-}
-
-@media screen and (max-width: 50rem) {
   .container {
-    height: auto;
-  }
-  .weather-container {
-    width: 95%;
-  }
-  #clock {
-    margin-top: 1rem;
-  }
-  .container > .bookmark-container {
+    width: 100%;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -ms-flex-direction: column;
     flex-direction: column;
-    width: 80%;
   }
-  .bookmark-container > .bookmark-set {
-    width: auto;
+
+  .top {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  #close1 {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  #close2 {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .fade {
+    display: flex !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .4s;
+    z-index: -1;
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #command {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  #command-list {
+    width: 90%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #000;
+    border: solid 0px #000;
+    font-family: Inconsolata;
+    color: #f2f2f2;
+    outline: none;
+    margin-bottom: 1rem;
+  }
+
+  #command-list>span {
+    text-transform: uppercase;
+  }
+
+  #search {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  #search-field {
+    width: 90%;
+    padding: 2rem 1rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #000;
+    border: solid 0px #000;
+    font-family: Inconsolata;
+    font-size: 3.5rem;
+    color: #f2f2f2;
+    outline: none;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #search-mode {
+    text-align: left;
+    width: 90%;
+    padding-bottom: 0.3rem;
+  }
+
+  #clock {
+    font-size: 6rem;
+    color: #000;
+    margin-bottom: 0.7rem;
+  }
+
+  .weather-container {
+    width: 70%;
+    padding: 1rem 1rem 0rem 1rem;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+  }
+
+  .inline {
+    display: inline-block;
+  }
+
+  .bookmark-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin: 1rem 0rem;
-    height: auto;
   }
-  .corner:not(#songb) {
-    display: none;
+
+  @media screen and (max-width: 50rem) {
+    html {
+      font-size: 25px !important;
+    }
+    .container {
+      height: auto;
+    }
+    .weather-container {
+      width: 95%;
+    }
+    #clock {
+      margin-top: 1rem;
+      font-size: 3rem;
+    }
+    .container>.bookmark-container {
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 80%;
+    }
+    .bookmark-container>.bookmark-set {
+      width: auto;
+      margin: 1rem 0rem;
+      height: auto;
+    }
+    .top {
+      display: none !important;
+    }
+    .bottom {
+      height: auto !important;
+    }
   }
-}
 
-.bookmark-set {
-  padding: 1rem;
-  font-size: 0.85rem;
-  width: 25%;
-  height: 15rem;
-  margin: 0rem 0.5rem;
-}
-.bookmark-inner-container {
-  overflow: visible;
-  height: 80%;
-  vertical-align: top;
-}
-.bookmark-title {
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: left;
-  color: #000;
-  margin: 0rem 0rem 0.9rem 0rem;
-}
-.bookmark {
-  text-decoration: none;
-  color: #383838;
-  display: block;
-  margin: 0.5rem 0rem;
-}
-.bookmark:hover {
-  font-weight: 500;
-  text-decoration: line-through;
-  /* font-size: 1.15em; */
-}
+  .bookmark-set {
+    padding: 1rem;
+    font-size: 0.85rem;
+    width: 25%;
+    height: 15rem;
+    margin: 0rem 0.5rem;
+  }
 
+  .bookmark-inner-container {
+    overflow: visible;
+    height: 80%;
+    vertical-align: top;
+  }
+
+  .bookmark-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    margin: 0rem 0rem 0.9rem 0rem;
+  }
+
+  .bookmark {
+    text-decoration: none;
+    color: #383838;
+    display: block;
+    margin: 0.5rem 0rem;
+  }
+
+  .bookmark:hover {
+    font-weight: 500;
+    text-decoration: line-through;
+    /* font-size: 1.15em; */
+  }
 </style>
 
 </html>
