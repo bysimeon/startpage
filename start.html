@@ -111,55 +111,54 @@
 <script>
   // LASTFM
 
-apikey = "";
-apibase = "https://ws.audioscrobbler.com/2.0/";
-user = "";
-paused = true;
+  apikey = "";
+  apibase = "https://ws.audioscrobbler.com/2.0/";
+  user = "";
+  paused = true;
 
-function recenttrack() {
-  let xhr2 = new XMLHttpRequest();
-  xhr2.open('GET', apibase + "?method=user.getrecenttracks&user=" + user + "&api_key=" + apikey + "&format=json");
-  xhr2.onload = () => {
-    if (xhr2.readyState === 4) {
-      if (xhr2.status === 200) {
-        let json2 = JSON.parse(xhr2.responseText);
-        songname = json2.recenttracks.track[0].name;
-        artistname = json2.recenttracks.track[0].artist['#text'];
-        noscrobble = "<span class='loading'></span>";
-        if (typeof json2.recenttracks.track[0]['@attr'] === 'undefined') {
-          playing = false;
-        } else {
-          playing = json2.recenttracks.track[0]['@attr'].nowplaying;
-        }
-        if (songname.length >= 50) {
-          if (songname.includes('(f')) {
-            songname = (songname.substr(0, songname.indexOf(' (f')));
+  function recenttrack() {
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open('GET', apibase + "?method=user.getrecenttracks&user=" + user + "&api_key=" + apikey + "&format=json");
+    xhr2.onload = () => {
+      if (xhr2.readyState === 4) {
+        if (xhr2.status === 200) {
+          let json2 = JSON.parse(xhr2.responseText);
+          songname = json2.recenttracks.track[0].name;
+          artistname = json2.recenttracks.track[0].artist['#text'];
+          noscrobble = "<span class='loading'></span>";
+          if (typeof json2.recenttracks.track[0]['@attr'] === 'undefined') {
+            playing = false;
           } else {
-            songname = (songname.substr(0, 50)) + "...";
+            playing = json2.recenttracks.track[0]['@attr'].nowplaying;
           }
-        }
-        if (playing) {
-          paused = false;
-          document.getElementById('song').innerHTML = songname + " - " + artistname;
-          document.getElementById('song').setAttribute("href", json2.recenttracks.track[0].url);
-          sessionStorage.setItem('song', songname + " - " + artistname);
-          sessionStorage.setItem('songurl', json2.recenttracks.track[0].url);
+          if (songname.length >= 50) {
+            if (songname.includes('(f')) {
+              songname = (songname.substr(0, songname.indexOf(' (f')));
+            } else {
+              songname = (songname.substr(0, 50)) + "...";
+            }
+          }
+          if (playing) {
+            paused = false;
+            document.getElementById('song').innerHTML = songname + " - " + artistname;
+            document.getElementById('song').setAttribute("href", json2.recenttracks.track[0].url);
+            sessionStorage.setItem('song', songname + " - " + artistname);
+            sessionStorage.setItem('songurl', json2.recenttracks.track[0].url);
+          } else {
+            if (!paused) {
+              document.getElementById("song").innerHTML = noscrobble;
+            }
+            paused = true;
+            document.getElementById('song').setAttribute("href", "https://www.last.fm/user/" + user);
+            sessionStorage.setItem("song", noscrobble);
+            sessionStorage.setItem("songurl", "https://www.last.fm/user/" + user);
+          }
         } else {
-          if (!paused) {
-            document.getElementById("song").innerHTML = noscrobble;
-          }
-          paused = true;
-          document.getElementById('song').setAttribute("href", "https://www.last.fm/user/" + user);
-          sessionStorage.setItem("song", noscrobble);
-          sessionStorage.setItem("songurl", "https://www.last.fm/user/" + user);
         }
-      } else {
-        console.log('error msg: ' + xhr.status);
       }
     }
+    xhr2.send();
   }
-  xhr2.send();
-}
 
   // SEARCH 
 
@@ -196,7 +195,6 @@ function recenttrack() {
   function search(e) {
     var val = document.getElementById("search-field").value;
     var key = val.substr(0, (cutoff(3, val))).trim().toLowerCase();
-    console.log(key);
 
     if (val.length <= cutoff(3, val)) {
       if (key in searchmod) {
@@ -216,6 +214,7 @@ function recenttrack() {
     if (e.keyCode == 13) {
       if (searchengine != "") {
         window.open((searchmod[key][1]) + val.substr(cutoff(3, val)).trim(), "_self");
+        document.getElementById("search-mode").innerHTML = searchmod[searchengine][0] + '<span class="loading"></span>';
       } else if (val.includes('.com') || val.includes('.net') || val.includes('.co') ||
         val.includes('.io') || val.includes('.xyz') || val.includes('.gov') || val.includes('.org') || val.includes(
           '.se') ||
@@ -223,15 +222,18 @@ function recenttrack() {
           '.info') ||
         val.includes('.ai') || val.includes('.ch') || val.includes('.edu') || val.includes('.gl') || val.includes('.nz') ||
         val.includes('.so')) {
+        document.getElementById("search-mode").innerHTML = 'url' + '<span class="loading"></span>';
         if (val.includes('http')) {
           window.open(val.trim(), "_self");
         } else {
           window.open("http://" + val.trim(), "_self");
         }
       } else {
+        document.getElementById("search-mode").innerHTML = 'google' + '<span class="loading"></span>';
         window.open("https://google.com/search?q=" + val.trim(), "_self");
       }
-      document.getElementById("search-mode").innerHTML = searchmod[searchengine][0] + '<span class="loading"></span>';
+      document.getElementById("search-field").setAttribute('class', 'move-off-right');
+      document.getElementById("search-mode").setAttribute('class', 'move-off-right');
     }
   }
 
@@ -313,7 +315,6 @@ function recenttrack() {
           document.getElementById("temp").innerHTML = json.main.temp.toFixed(0) + "&#176 f";
           document.getElementById("weather-description").innerHTML = json.weather[0].description;
         } else {
-          console.log('error msg: ' + xhr.status);
         }
       }
     }
@@ -519,6 +520,11 @@ function recenttrack() {
     opacity: 1;
   }
 
+  .move-off-right {
+    transition: transform .3s;
+    transform: translate(80vw, 0px);
+  }
+
   #command {
     width: 100%;
     height: 100vh;
@@ -619,7 +625,7 @@ function recenttrack() {
     margin: 1rem 0rem;
   }
 
-  @media screen and (max-width: 50rem) {
+  @media screen and (max-width: 640px) {
     html {
       font-size: 25px !important;
     }
