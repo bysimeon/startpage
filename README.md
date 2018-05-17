@@ -1,4 +1,4 @@
-# startpage [[demo]](https://www.bysimeon.com/start.html)
+# startpage [[demo]](https://www.bysimeon.com/start/)
 
 a [/r/startpage](https://www.reddit.com/r/startpages/) or [**new tab page**](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en)
 

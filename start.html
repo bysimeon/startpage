@@ -49,6 +49,7 @@
         <li> lastfm (l:)</li>
         <li> netflix (n:)</li>
         <li> unsplash (u:)</li>
+        <li> localhost (::)</li>
       </ul>
       press
       <span> esc </span> to close searchbox and this help page.
@@ -164,6 +165,7 @@
 
   var searchengine = "";
   var searchmod = {
+    "::": ["localhost", "http://localhost:", "(135deg, #8BC6EC 0%, #9599E2 100%)", "#8BC6EC"],
     "s:": ["soundcloud", "https://soundcloud.com/search?q=", "(to right, #fe8c00, #f83600)", "#fe8c00"],
     "y:": ["youtube", "https://www.youtube.com/results?search_query=", "(to right, #e52d27, #b31217)", "#e52d27"],
     "t:": ["twitch", "https://www.twitch.tv/directory/game/", "(to right, #6441a5, #2a0845)", "#6441a5"],
