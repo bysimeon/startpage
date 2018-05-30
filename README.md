@@ -28,7 +28,8 @@ a [/r/startpage](https://www.reddit.com/r/startpages/) and [**new tab page**](ht
 
   just copy the filler links in the bookmark container and add your own!
 
-  adding sites to search
+### search
+
   add a definition to the searchmod dictionary with the following infortmation (example below)
 
   ```javascript
