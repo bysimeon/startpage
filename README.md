@@ -1,10 +1,6 @@
 # startpage [[demo]](https://www.bysimeon.com/start/)
 
-a [/r/startpage](https://www.reddit.com/r/startpages/) or [**new tab page**](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en)
-
-shout out to [jaredk3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](https://github.com/maxbeier/text-spinners) for the resources and inspiration.
-
----
+a [/r/startpage](https://www.reddit.com/r/startpages/) and [**new tab page**](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna?hl=en)
 
 ## config
 
@@ -20,7 +16,7 @@ shout out to [jaredk3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](h
 
 ### weather
 
-  open weather map is being used. to set to your location. change the zip code in the api call.
+  open weather map is being used, location is grabbed with navigator.geolocation, add your own api key in the api url.
 
   ```javascript
   xhr.open('GET',
@@ -47,10 +43,15 @@ shout out to [jaredk3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](h
 
 ### background switcher
 
-you can toggle through background from by adding to the backgrounds array. (example below)
+you can add background to toggle throughy by adding images, colors, or gradients to the background array (example below)
 
   ```javascript
   ['#08AEEA', 'linear-gradient(to left, #e2e2e2 0%, #2AF598 100%)']
   ```
 
-  background is set to both values, so you can use it fallback or to makesure -webkit is covered
+  the background will be set to both values, so you can add a fallback.
+  
+---
+
+thanks to [jaredk3nt](https://github.com/Jaredk3nt/homepage) and [maxbeier](https://github.com/maxbeier/text-spinners) for the resources and inspiration.
+
