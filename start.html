@@ -307,9 +307,7 @@
 
   function theweather() {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET',
-      'http://api.openweathermap.org/data/2.5/weather?zip=60201,us&units=Imperial&appid=4119dfca25e96bf1f10f35a975835f6c'
-    );
+    xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + sessionStorage.getItem('lat') + "&lon=" + sessionStorage.getItem('lon') + "&units=Imperial&appid=APIKEY");
     xhr.onload = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
@@ -321,7 +319,7 @@
       }
     }
     xhr.send();
-  }
+}
 
   var backgrounds = [
     ['linear-gradient(to right, #c9d6ff, #e2e2e2)', '-webkit-linear-gradient(to right, #c9d6ff, #e2e2e2)'],
@@ -350,8 +348,12 @@
     document.getElementById('search-field').value = '';
     clear();
 
-    theweather();
-    setInterval(theweather, 6000000);
+    navigator.geolocation.getCurrentPosition(function(position) {
+      sessionStorage.setItem('lat', position.coords.latitude);
+      sessionStorage.setItem('lon', position.coords.longitude);
+      theweather();
+    });
+    setInterval(theweather, 60000);
 
     document.getElementById("clock").innerHTML = getTime();
     document.getElementById("date").innerHTML = getDay();
