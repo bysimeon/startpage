@@ -186,23 +186,17 @@
     document.getElementById("search-mode").style.color = "black ";
   }
 
-  function cutoff(num, str) {
-    if (str.substring(0, 1) != " ") {
-      num2 = num - 1;
-    }
-    num2 = num;
-    return num2
-  }
-
   function search(e) {
-    var val = document.getElementById("search-field").value;
-    var key = val.substr(0, (cutoff(3, val))).trim().toLowerCase();
+    val = document.getElementById("search-field").value;
+    key = val.trim().substr(0, 2).toLowerCase();
 
-    if (val.length <= cutoff(3, val)) {
+    if (val.trim().length <= 2) {
       if (key in searchmod) {
         searchengine = key;
-        document.getElementById("search-field").style.background = "-webkit-linear-gradient" + searchmod[key][2];
-        document.getElementById("search-field").style.background = "linear-gradient" + searchmod[key][2];
+        document.getElementById("search-field").style.background =
+          "-webkit-linear-gradient" + searchmod[key][2];
+        document.getElementById("search-field").style.background =
+          "linear-gradient" + searchmod[key][2];
         document.getElementById("search-mode").style.color = searchmod[key][3];
         document.getElementById("search-mode").style.color = searchmod[key][3];
         document.getElementById("search-mode").innerHTML = searchmod[key][0];
@@ -215,27 +209,51 @@
 
     if (e.keyCode == 13) {
       if (searchengine != "") {
-        window.open((searchmod[key][1]) + val.substr(cutoff(3, val)).trim(), "_self");
-        document.getElementById("search-mode").innerHTML = searchmod[searchengine][0] + '<span class="loading"></span>';
-      } else if (val.includes('.com') || val.includes('.net') || val.includes('.co') ||
-        val.includes('.io') || val.includes('.xyz') || val.includes('.gov') || val.includes('.org') || val.includes(
-          '.se') ||
-        val.includes('.fm') || val.includes('.de') || val.includes('.uk') || val.includes('.gg') || val.includes(
-          '.info') ||
-        val.includes('.ai') || val.includes('.ch') || val.includes('.edu') || val.includes('.gl') || val.includes('.nz') ||
-        val.includes('.so')) {
-        document.getElementById("search-mode").innerHTML = 'url' + '<span class="loading"></span>';
-        if (val.includes('http')) {
+        window.open(
+          searchmod[key][1] + val.trim().substr(2).trim(),
+          "_self"
+        );
+        document.getElementById("search-mode").innerHTML =
+          searchmod[searchengine][0] + '<span class="loading"></span>';
+      } else if (
+        val.includes(".com") ||
+        val.includes(".net") ||
+        val.includes(".co") ||
+        val.includes(".io") ||
+        val.includes(".xyz") ||
+        val.includes(".gov") ||
+        val.includes(".org") ||
+        val.includes(".se") ||
+        val.includes(".fm") ||
+        val.includes(".de") ||
+        val.includes(".uk") ||
+        val.includes(".gg") ||
+        val.includes(".info") ||
+        val.includes(".ai") ||
+        val.includes(".ch") ||
+        val.includes(".edu") ||
+        val.includes(".gl") ||
+        val.includes(".nz") ||
+        val.includes(".so")
+      ) {
+        document.getElementById("search-mode").innerHTML =
+          "url" + '<span class="loading"></span>';
+        if (val.includes("http")) {
           window.open(val.trim(), "_self");
         } else {
           window.open("http://" + val.trim(), "_self");
         }
       } else {
-        document.getElementById("search-mode").innerHTML = 'google' + '<span class="loading"></span>';
+        document.getElementById("search-mode").innerHTML =
+          "google" + '<span class="loading"></span>';
         window.open("https://google.com/search?q=" + val.trim(), "_self");
       }
-      document.getElementById("search-field").setAttribute('class', 'move-off-right');
-      document.getElementById("search-mode").setAttribute('class', 'move-off-right');
+      document
+        .getElementById("search-field")
+        .setAttribute("class", "move-off-right");
+      document
+        .getElementById("search-mode")
+        .setAttribute("class", "move-off-right");
     }
   }
 
