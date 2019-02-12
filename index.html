@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="startpage">
+  <meta name="keyword" content="launcher startpage">
+  <title>launcher</title>
+  <!-- linked assets -->
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/start.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/universal.css">
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/spinners.css">
+  <link href="assets/favicon.png" rel="shortcut icon" type="imtage/x-icon" />
+  <script src="/assets/javascript/time.js"></script>
+  <script src="/assets/javascript/weather.js"></script>
+  <script src="/assets/javascript/search.js"></script>
+  <script src="/assets/javascript/switcher.js"></script>
+  <script src="/assets/javascript/lastfm.js"></script>
+</head>
+
+<body>
+  <div class="top">
+    <div class="corner">
+    <span onclick="darkMode()" class="button">
+    </div>
+    <div class="corner">
+      <a onclick="commands()"> help </a>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="corner" id="song">
+      <a href="https://www.last.fm/" class="hidden-link"> listening to: </a>
+      <a id="song_name" href="#">nothing, last.fm not linked</a>
+      <span id="filler"></span>
+      <a id="artist_name" href="#"></a>
+    </div>
+    <div class="corner">
+      <a href="/">***</a>
+    </div>
+  </div>
+  <div id="command" class="fade">
+    <div id="close1">
+      <a onclick="closeall()"> close </a>
+    </div>
+    <div id="command-list">
+      press
+      <span> space </span> to focus the searchbox,
+      <span> google </span> is used by default. enter a
+      <span> url </span> to open that webpage. search specific sites by using one of the following shortcuts before your query:
+      <ul>
+        <li> reddit (r:)</li>
+        <li> subreddits (r/examplesubreddit goes to examplesubreddit) </li>
+        <li> youtube (y:) </li>
+        <li> soundcloud (s:) </li>
+        <li> translate (t:)</li>
+        <li> myanimelist (a:)</li>
+        <li> google drive (d:)</li>
+        <li> github (g:)</li>
+        <li> lyrics (l:)</li>
+        <li> netflix (n:)</li>
+        <li> unsplash (u:)</li>
+        <li> localhost (::)</li>
+      </ul>
+      press
+      <span> esc </span> to clear the searchbox and close this help page.
+    </div>
+  </div>
+  <div class="container">
+    <div id="clock"></div>
+    <div id="date"> 4 / 14 / 2018 </div>
+    <div class="weather-container">
+      <div class="row">
+        <div id="weather-description" class="inline"></div>
+        <div class="inline">-</div>
+        <div id="temp" class="inline"></div>
+      </div>
+    </div>
+    <div id="inline-search">
+      <div id="search-mode">
+        <span class="loading"></span>
+      </div>
+      <input id="search-field" type="text" name="search-field" onkeyup="return search(event)" />
+    </div>
+  </div>
+</body>
+
+<script>
+  window.onload = () => {
+    document.documentElement.style.setProperty('--text-color', localStorage.getItem('textColor'));
+    document.documentElement.style.setProperty("--background-color", localStorage.getItem("backgroundColor"));
+
+    // get time
+    document.getElementById("clock").innerHTML = getTime();
+    document.getElementById("date").innerHTML = getDay();
+
+    setInterval(() => {
+      document.getElementById("clock").innerHTML = getTime();
+      document.getElementById("date").innerHTML = getDay();
+    }, 100);
+
+    // get weather
+    navigator.geolocation.getCurrentPosition(function (position) {
+      sessionStorage.setItem('lat', position.coords.latitude);
+      sessionStorage.setItem('lon', position.coords.longitude);
+      theweather();
+    });
+    setInterval(theweather, 60000);
+
+    // get track
+    if (apikey !== "") {
+      if (sessionStorage.getItem("song_name") === null) {
+        document.getElementById("song_name").innerHTML = noscrobble
+      } else {
+        document.getElementById(
+          "song_name"
+        ).innerHTML = sessionStorage.getItem("song_name")
+      }
+
+      document
+        .getElementById("song_name")
+        .setAttribute("href", sessionStorage.getItem("song_url"))
+      document.getElementById(
+        "artist_name"
+      ).innerHTML = sessionStorage.getItem("artist_name")
+      document
+        .getElementById("artist_name")
+        .setAttribute("href", sessionStorage.getItem("artist_url"))
+      setInterval(recenttrack, 500)
+    }
+    // Clear Everything on Load
+    document.getElementById('search-field').value = '';
+    document.getElementById("search-field").focus();
+    clear();
+  }
+</script>
+</html>
