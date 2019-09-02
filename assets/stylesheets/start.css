@@ -102,7 +102,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: var(--text-color);
-  border: solid 0px var(--text-color);
+  border: solid 2px var(--text-color);
   font-family: "Space Grotesk";
   font-size: 3.5rem;
   color: var(--background-color);
