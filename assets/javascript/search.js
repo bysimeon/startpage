@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 "use strict"
 // VARIABLES
-var selectedSearch = ""
-var selectedSearchLength = 0
-var selectedBookmark = ""
+let selectedSearch = ""
+let selectedSearchLength = 0
+let selectedBookmark = ""
 
 // LISTS
 var searchEngines = {
@@ -95,49 +96,20 @@ var searchEngines = {
 var bookmarks = {
     sc: ["soundcloud", "https://www.soundcloud.com/"],
     yt: ["youtube", "https://www.youtube.com/"],
-    pkmn: ["showdown", "https://play.pokemonshowdown.com/"],
-    bnk: ["simple", "https://bank.simple.com/"],
-    amex: ["american express", "https://www.americanexpress.com/"],
-    dscvr: ["discover", "https://www.discover.com/"],
-    hrrbl: ["subs", "https://horriblesubs.info/"],
-    msc: ["plus premieres", "https://www.pluspremieres.in/"],
-    csr: ["caesar", "http://caesar.northwestern.edu"],
-    cnvs: ["canvas", "http://canvas.northwestern.edu"],
-    myhr: ["myhr", "http://myhr.northwestern.edu"],
-    w2w: ["whentowork", "https://whentowork.com"],
     clndr: ["calendar", "https://calendar.google.com"],
     phts: ["google photos", "http://photos.google.com"],
-    teah: ["teah", "http://teahkbrands.com"],
-    ntn: ["notion", "http://notion.so"],
     txt: ["messages", "https://messages.android.com"],
-    allo: ["allo", "https://allo.google.com/web"],
-    sqsp: ["squarespace", "https://www.squarespace.com/"],
     ebay: ["ebay", "https://www.ebay.com"],
     drive: ["google drive", "https://www.drive.google.com/drive/"],
     docs: ["google docs", "https://www.docs.google.com/"],
     netflix: ["netflix", "https://www.netflix.com/"],
     git: ["github", "https://www.github.com"],
-    mega: ["megalinks", "https://forum.snahp.it/index.php"],
-    conweb: ["conweb", "https://kb.northwestern.edu/internal/conweb"],
-    piazza: ["piazza", "https://piazza.com/"],
     keep: ["google keep", "https://keep.google.com"],
-    kick: ["kickstarter", "https://www.kickstarter.com"],
     mail: ["gmail", "https://gmail.com"],
     amzn: ["amazon", "https://smile.amazon.com/"],
-    feed: ["feedly", "https://feedly.com"],
-    arena: ["are.na", "https://www.are.na/"],
-    shrtn: ["bit.ly", "https://bitly.com/"],
-    trns: ["translate", "https://translate.google.com/"],
-    pdl: ["pedalroom", "https://www.pedalroom.com/"],
-    lzy: ["lazy", "https://bysimeon.com/lazy/"],
     rddt: ["reddit", "https://reddit.com"],
-    tlt: ["tiilt lab", "https://tiilt.northwestern.edu"],
     mal: ["myanimelist", "https://myanimelist.net"],
-    "1p": ["1password", "https://my.1password.com"],
-    pp: ["paypal", "https://www.paypal.com/us/home"],
-    swpp: ["swappa", "https://swappa.com"],
-    bs64: ["base64", "https://www.base64decode.org/"],
-    groupme: ["groupme", "https://web.groupme.com/"]
+    bs64: ["base64", "https://www.base64decode.org/"]
 }
 
 // clear everything except text
@@ -251,7 +223,7 @@ function search(e) {
                         window.open("http://" + currentText.trim(), "_self")
                     } catch (err) {
                         document.getElementById("search-mode").innerHTML =
-                          "google" + "<span class='loading'></span>"
+                            "google" + "<span class='loading'></span>"
                         window.open(
                             "https://google.com/search?q=" + currentText.trim(),
                             "_self"
@@ -261,7 +233,7 @@ function search(e) {
             }
         } else {
             document.getElementById("search-mode").innerHTML =
-              "google" + "<span class='loading'></span>"
+                "google" + "<span class='loading'></span>"
             window.open(
                 "https://google.com/search?q=" + currentText.trim(),
                 "_self"
