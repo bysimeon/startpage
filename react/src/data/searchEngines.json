@@ -1,0 +1,87 @@
+{
+    "s:": [
+        "soundcloud",
+        "https://soundcloud.com/search?q=",
+        "(to right, #fe8c00, #f83600)",
+        "#fe8c00"
+    ],
+    "l:": [
+        "lyrics @ genius",
+        "https://genius.com/search?q=",
+        "(to right, #FAD961 , #F7F21C)",
+        "#FAD961"
+    ],
+    "::": [
+        "localhost",
+        "http://localhost:",
+        "(135deg, #8BC6EC 0%, #9599E2 100%)",
+        "#8BC6EC"
+    ],
+    "y:": [
+        "youtube",
+        "https://www.youtube.com/results?search_query=",
+        "(to right, #e52d27, #b31217)",
+        "#e52d27"
+    ],
+    "a:": [
+        "myanimelist",
+        "https://myanimelist.net/search/all?q=",
+        "(to right, #1488cc, #2e51a2)",
+        "#1488cc"
+    ],
+    "r:": [
+        "reddit",
+        "https://www.reddit.com/search?q=",
+        "(to right, #5f99cf, #cee3f8)",
+        "#5f99cf",
+        "#1488cc"
+    ],
+    "r/": [
+        "subreddit",
+        "https://www.reddit.com/r/",
+        "(to right, #5f99cf, #cee3f8)",
+        "#5f99cf"
+    ],
+    "d:": [
+        "google drive",
+        "https://drive.google.com/drive/u/0/search?q=",
+        "(to right, #4285f4, #fbbc05)",
+        "#4285f4"
+    ],
+    "g:": [
+        "github",
+        "https://github.com/search?utf8=%E2%9C%93&q=",
+        "(to right, #767676, #999)",
+        "#767676"
+    ],
+    "u:": [
+        "unsplash",
+        "https://unsplash.com/search/photos/",
+        "(to right, #485563, #29323c)",
+        "#485563"
+    ],
+    "n:": [
+        "netflix",
+        "https://www.netflix.com/search?q=",
+        "(to right, #e50914, #e50914)",
+        "#e50914"
+    ],
+    "t:": [
+        "translate",
+        "https://translate.google.com/#auto/fr/",
+        "(to right, #2c3e50, #4ca1af)",
+        "#2c3e50"
+    ],
+    "e:": [
+        "ebay",
+        "https://www.ebay.com/sch/",
+        "(to right, #799f0c, #acbb78)",
+        "#799f0c"
+    ],
+    "p:": [
+        "usps tracking",
+        "https://tools.usps.com/go/TrackConfirmAction?tLabels=",
+        "(to right, #E71921, #333366)",
+        "#E71921"
+    ]
+}

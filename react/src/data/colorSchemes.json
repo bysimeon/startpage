@@ -1,0 +1,16 @@
+{
+    "themes": [
+        {
+            "textColor": "#EEEEEE",
+            "backgroundColor": "#212121"
+        },
+        {
+            "textColor": "#FFF",
+            "backgroundColor": "#000"
+        },
+        {
+            "textColor": "#000",
+            "backgroundColor": "#FFF"
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "thehighly": {
+        "name": "the highly",
+        "collaborators": [
+            { "name": "teah", "url": "https://teahkbrands.com/" }
+        ],
+        "stack": [
+            "squarespace",
+            "json-t",
+            "sass",
+            "mailchimp",
+            "google analytics",
+            "sketch",
+            "photoshop",
+            "illustrator"
+        ],
+        "description": "a website hosting the interviews, travel guides and product reviews of the cannabis editorial, the highly.",
+        "images" : [],
+        "imageCount": 5,
+        "url": "",
+        "repository" : ""
+    },
+    "storymapjs": {
+        "name": "simeon's website",
+        "collaborators": [],
+        "stack": ["flask", "node", "mondodb"],
+        "description": "a free tool to help you tell stories on the web that highlight the locations of a series of events. created local development for github contributors, fixed bugs and improved documentation.",
+        "images" : [],
+        "url": "https://storymap.knightlab.com/",
+        "repository" : "https://github.com/NUKnightLab/StoryMapJS"
+    },
+    "bysimeon.com": {
+        "name": "simeon's website",
+        "collaborators": [],
+        "stack": ["react", "mongodb", "express", "node", "nginx"],
+        "description": "a website that serves as both my claimed space on the internet and a place to develop and showcase different experiments.",
+        "images" : [],
+        "url": "https://bysimeon.com/",
+        "repository" : "https://github.com/bysimeon"
+    },
+    "papi": {
+        "name": "papi",
+        "collaborators": [
+            { "name": "deok", "url": "https://github.com/deokfilho" },
+            { "name": "addie", "url": "https://github.com/addierohrbach"}
+        ],
+        "stack": [
+            "flask",
+            "jquery",
+            "postgres"
+        ],
+        "description": "a web application made for mayer brown that analyzes legal documents and creates reports highlighting important clauses.",
+        "imageCount": 5
+    }
+}

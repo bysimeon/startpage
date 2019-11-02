@@ -1,0 +1,24 @@
+$text-color--light: black;
+$background-color--light: white;
+
+$text-color--dark: #eeeeee;
+$background-color--dark: #212121;
+
+$text-color: #000;
+$background-color: rgb(255, 255, 255);
+
+// $text-color: #212121;
+// $background-color: #fff;
+
+// $text-color: #eeeeee;
+// $background-color: #212121;
+
+@media (prefers-color-scheme: dark) {
+    $text-color: #eeeeee;
+    $background-color: #212121;
+}
+
+@media (prefers-color-scheme: light) {
+    $text-color: #212121;
+    $background-color: #eeeeee;
+}

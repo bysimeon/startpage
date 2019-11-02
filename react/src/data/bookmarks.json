@@ -1,0 +1,266 @@
+{
+    "sc": [
+        "soundcloud",
+        "https://www.soundcloud.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "yt": [
+        "youtube",
+        "https://www.youtube.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "pkmn": [
+        "showdown",
+        "https://play.pokemonshowdown.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "bnk": [
+        "simple",
+        "https://bank.simple.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "amex": [
+        "american express",
+        "https://www.americanexpress.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "dscvr": [
+        "discover",
+        "https://www.discover.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "hrrbl": [
+        "subs",
+        "https://horriblesubs.info/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "msc": [
+        "plus premieres",
+        "https://www.pluspremieres.in/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "csr": [
+        "caesar",
+        "http://caesar.northwestern.edu",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "cnvs": [
+        "canvas",
+        "http://canvas.northwestern.edu",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "clndr": [
+        "calendar",
+        "https://calendar.google.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "phts": [
+        "google photos",
+        "http://photos.google.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "ntn": [
+        "notion",
+        "http://notion.so",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "txt": [
+        "messages",
+        "https://messages.google.com/web/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "ebay": [
+        "ebay",
+        "https://www.ebay.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "drive": [
+        "google drive",
+        "https://www.drive.google.com/drive/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "docs": [
+        "google docs",
+        "https://www.docs.google.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "netflix": [
+        "netflix",
+        "https://www.netflix.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "git": [
+        "github",
+        "https://www.github.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "mega": [
+        "megalinks",
+        "https://forum.snahp.it/index.php",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "keep": [
+        "google keep",
+        "https://keep.google.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "kick": [
+        "kickstarter",
+        "https://www.kickstarter.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "mail": [
+        "gmail",
+        "https://gmail.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "amzn": [
+        "amazon",
+        "https://smile.amazon.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "arena": [
+        "are.na",
+        "https://www.are.na/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "shrtn": [
+        "bit.ly",
+        "https://bitly.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "trns": [
+        "translate",
+        "https://translate.google.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "pdl": [
+        "pedalroom",
+        "https://www.pedalroom.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "rdt": [
+        "reddit",
+        "https://reddit.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "mal": [
+        "myanimelist",
+        "https://myanimelist.net",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "twitch": [
+        "twitch",
+        "https://twitch.tv",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "pp": [
+        "paypal",
+        "https://www.paypal.com/us/home",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "bs64": [
+        "base64",
+        "https://www.base64decode.org/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "groupme": [
+        "groupme",
+        "https://web.groupme.com/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "gps": [
+        "google maps",
+        "https://www.google.com/maps",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "lst": [
+        "last.fm",
+        "https://www.last.fm/user/theblindlookout",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "stacko": [
+        "stack overflow",
+        "https://stackoverflow.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "hbt": [
+        "habitica",
+        "https://habitica.com", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "realm": [
+        "realmeye",
+        "https://realmeye.com", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "key": [
+        "keybr",
+        "https://keybr.com", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "mule": [
+        "muledump",
+        "https://jakcodex.github.io/muledump/muledump.html", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "inst": [
+        "instapaper",
+        "https://www.instapaper.com/u", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "cnct": [
+        "garmin connect",
+        "https://connect.garmin.com/", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ],
+    "mfp": [
+        "my fitness pal",
+        "https://www.myfitnesspal.com/", 
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
+        "#6873ca"
+    ]
+}

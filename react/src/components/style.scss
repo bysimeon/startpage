@@ -1,0 +1,191 @@
+@import "../variables.scss";
+
+.bullet {
+    font-size: 10rem;
+}
+
+.container--start {
+    width: 100%;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.top--start {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.move-off-right {
+    transition: transform 0.3s;
+    transform: translate(60vw, 0px);
+}
+
+.modeBackground {
+    position: absolute;
+    width: 150%;
+    height: 100vh;
+    font-size: 7rem;
+    font-weight: bold;
+    opacity: 0.05;
+    z-index: 0;
+    overflow: hidden;
+    display: none;
+}
+
+#close1 {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+#close2 {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.fade {
+    display: flex !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s;
+    z-index: -1;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#command {
+    width: 100%;
+    height: 100vh;
+    background-color: $background-color;
+    color: $background-color;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#command-list {
+    width: 90%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: $text-color;
+    border: solid 0px $text-color;
+    font-family: "Space Grotesk";
+    color: $background-color;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+#command-list > span {
+    text-transform: uppercase;
+}
+
+#command-list > a {
+    color: $background-color;
+    text-decoration: underline !important;
+}
+
+#inline-search {
+    z-index: 10;
+    width: 55vw;
+}
+
+#search-field {
+    width: 100%;
+    padding: 2rem 1rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: $text-color;
+    border: solid 2px $text-color;
+    font-family: "Space Grotesk";
+    font-size: 3.5rem;
+    color: $background-color;
+    outline: none;
+    margin-bottom: 1rem;
+    text-align: center;
+    z-index: 10;
+}
+#search-mode {
+    text-align: left;
+    width: 90%;
+    padding-bottom: 0.3rem;
+    z-index: 10;
+}
+
+.weather-container {
+    width: 70%;
+    padding: 1rem 1rem 0rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+    z-index: 10;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.options {
+    display: flex;
+    width: 55vw;
+    height: 2.5em;
+    overflow-y: scroll;
+    white-space: nowrap;
+    &::-webkit-scrollbar { width: 0 !important }
+    &__option:first-of-type{
+        margin: 0 .5em 0 0;
+    }
+    &__option {
+        margin: 0 0.5em;
+        padding: 0 0.5em;
+        line-height: 2.5em;
+        vertical-align: middle;
+        background-color: $text-color;
+        &__key {
+            color: $background-color;
+        }
+        &__title {
+            color: $background-color;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .container--start {
+        height: auto;
+        margin: auto;
+    }
+    .weather-container {
+        width: 95%;
+    }
+    #inline-search {
+        margin-top: 2vh;
+        width: 90vw;
+    }
+    #command-list {
+        display: none;
+    }
+    .bottom {
+        height: auto !important;
+    }
+}
