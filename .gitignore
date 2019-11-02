@@ -2,6 +2,7 @@
 react/node_modules
 react/.pnp
 .pnp.js
+package-lock.json
 
 # testing
 react/coverage
