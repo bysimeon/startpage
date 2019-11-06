@@ -4,7 +4,7 @@ import "./style.scss"
 import Time from "./time"
 import Search from "./search"
 import Weather from "./weather"
-import Help from "./help"
+import Commands from "./commands"
 
 class Start extends Component {
     constructor() {
@@ -28,7 +28,6 @@ class Start extends Component {
         return (
             <div className="container container--start">
                 <div className="modeBackground">{backgroundTextRepeat}</div>
-                <Help />
                 <Time />
                 <Weather />
                 <Search changeBackground={this.changeBackground} />

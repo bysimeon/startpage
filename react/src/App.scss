@@ -1,4 +1,15 @@
-@import "variables.scss";
+:root {
+    --text-color: #000;
+    --background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #eeeeee;
+        --background-color: #212121;
+    }
+}
+
 
 @font-face {
     font-family: "Space Grotesk";
@@ -16,14 +27,14 @@ html {
     font-size: unquote("calc(10px + 0.6vw)");
     text-transform: lowercase;
     height: 100vh;
-    background-color: $background-color;
+    background-color: var(--background-color);
     overflow: hidden;
     // background-image: linear-gradient(147deg, rgba(255, 229, 59, .2) 0%, rgba(255, 37, 37, .1) 74%);
 }
 
 body {
     font-family: "Space Grotesk", sans-serif;
-    color: $text-color;
+    color: var(--text-color);
     margin: 0px;
     overscroll-behavior: none;
     overflow-x: hidden;
@@ -31,8 +42,8 @@ body {
 
 * {
     box-sizing: border-box;
-    border-color: $text-color;
-    color: $text-color;
+    border-color: var(--text-color);
+    color: var(--text-color);
 }
 
 /* ELEMENT MODIFICATIONS */
@@ -40,11 +51,11 @@ body {
 a {
     cursor: pointer;
     text-decoration: none;
-    color: $text-color;
+    color: var(--text-color);
     transition: all 0.1s linear;
     display: inline-block;
     padding-bottom: 0.1em;
-    border-bottom: 0.1em solid $text-color;
+    border-bottom: 0.1em solid var(--text-color);
 }
 
 a:visited {
@@ -143,7 +154,7 @@ img {
 
 .top {
     width: 100vw;
-    background: rgba($color: $background-color, $alpha: 0.9);
+    background: rgba($color: var(--background-color), $alpha: 0.9);
     position: fixed;
     left: 0px;
     top: 0px;
@@ -156,7 +167,7 @@ img {
     z-index: 100;
     overflow: hidden;
 
-    // border-bottom: 1px solid rgba($color: $text-color, $alpha: .1);
+    // border-bottom: 1px solid rgba($color: var(--text-color), $alpha: .1);
 
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -182,13 +193,13 @@ img {
     height: 4rem;
     width: 100vw;
     z-index: 4;
-    // background: linear-gradient($background-color, rgba($color: $background-color, $alpha: 0));
+    // background: linear-gradient(var(--background-color), rgba($color: var(--background-color), $alpha: 0));
 }
 
 .bottom {
     width: 100vw;
-    border-top: 1px solid $text-color;
-    background: $background-color;
+    border-top: 1px solid var(--text-color);
+    background: var(--background-color);
     position: fixed;
     left: 0px;
     bottom: 2rem;
@@ -212,8 +223,8 @@ img {
 
 .banner {
     width: 100vw;
-    border-top: 1px solid $background-color;
-    background: $text-color;
+    border-top: 1px solid var(--background-color);
+    background: var(--text-color);
     position: fixed;
     left: 0px;
     bottom: 0rem;
@@ -248,7 +259,7 @@ img {
         .ticker__item {
             display: inline-block;
             padding: 0 1rem;
-            color: $background-color;
+            color: var(--background-color);
         }
     }
 }
