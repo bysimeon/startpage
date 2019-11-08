@@ -262,5 +262,29 @@
         "https://www.myfitnesspal.com/", 
         "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)", 
         "#6873ca"
+    ],
+    "fm": [
+        "fm",
+        "https://fm.bysimeon.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "ate": [
+        "whatiate",
+        "https://ate.bysimeon.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "sadq": [
+        "super active daily quests",
+        "https://sadq.bysimeon.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "me": [
+        "simeon's website",
+        "https://bysimeon.com",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
     ]
 }
