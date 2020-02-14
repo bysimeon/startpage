@@ -2,7 +2,6 @@ import React from 'react';
 import './App.scss';
 
 import Start from "./components/index"
-import NowListening from "./components/nowListening"
 
 function App() {
   return (

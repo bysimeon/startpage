@@ -29,14 +29,17 @@ class Search extends Component {
 
     inputChange = text => {
         let currentText = text.target.value.trim().toLowerCase()
+
         let key = text.target.value
             .trim()
             .substr(0, 2)
             .toLowerCase()
+
         this.setState({
             currentText: currentText,
             key: key
         })
+        
         this.checkSearchEngines(currentText, key)
     }
 
@@ -88,10 +91,6 @@ class Search extends Component {
                 color: searchEngines[key][3],
                 key: key
             })
-            // this.props.changeBackground(
-            //     searchEngines[key][0],
-            //     searchEngines[key][3]
-            // )
         } else if (text.trim().toLowerCase() in searchEngines) {
             key = text.trim().toLowerCase()
             this.setState({
@@ -102,10 +101,6 @@ class Search extends Component {
                 color: searchEngines[key][3],
                 key: key
             })
-            // this.props.changeBackground(
-            //     searchEngines[key][0],
-            //     searchEngines[key][3]
-            // )
         } else {
             this.checkBookmarks(text)
         }
@@ -122,7 +117,6 @@ class Search extends Component {
                 background: bookmarks[text][2],
                 color: bookmarks[text][3]
             })
-            // this.props.changeBackground(bookmarks[text][0], bookmarks[text][3])
         } else {
             this.setState({
                 searchMod: false,
@@ -133,7 +127,6 @@ class Search extends Component {
                 key: false,
                 url: "https://duckduckgo.com/?q="
             })
-            // this.props.changeBackground("", "")
         }
     }
 

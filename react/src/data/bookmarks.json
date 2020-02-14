@@ -292,5 +292,35 @@
         "https://voice.google.com/",
         "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
         "#6873ca"
+    ],
+    "w3": [
+        "w3",
+        "https://w3.ibm.com/#/",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "cac": [
+        "cactus",
+        "https://cactus.com/home",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "vmail": [
+        "verse mail",
+        "https://mail.notes.na.collabserv.com/verse",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "vcal": [
+        "verse calendar",
+        "https://mail.notes.na.collabserv.com/verse#/calendar",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "pcast": [
+        "pocket casts",
+        "https://play.pocketcasts.com/podcasts",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
     ]
 }
