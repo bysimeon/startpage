@@ -301,7 +301,7 @@
     ],
     "cac": [
         "cactus",
-        "https://cactus.com/home",
+        "https://cactus.app/home",
         "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
         "#6873ca"
     ],
@@ -320,6 +320,12 @@
     "pcast": [
         "pocket casts",
         "https://play.pocketcasts.com/podcasts",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
+    ],
+    "strava": [
+        "strava",
+        "https://www.strava.com",
         "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
         "#6873ca"
     ]
