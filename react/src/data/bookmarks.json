@@ -328,5 +328,11 @@
         "https://www.strava.com",
         "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
         "#6873ca"
+    ],
+    "typ": [
+        "typings.gg",
+        "https://www.typings.gg",
+        "(to right, #6873ca 0%, #6873ca 1%, #e6dee9 100%)",
+        "#6873ca"
     ]
 }
