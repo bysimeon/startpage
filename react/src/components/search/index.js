@@ -68,6 +68,7 @@ class Search extends Component {
         if (e.keyCode === 32) {
             this.nameInput.focus()
         }
+        this.resetSearch()
     }
 
     search(url) {
@@ -161,6 +162,12 @@ class Search extends Component {
                 possibleKeys: []
             })
         }
+    }
+
+    resetSearch() {
+        setTimeout(() => {
+            window.location.reload()
+        }, 2000);
     }
 
     componentDidMount() {
