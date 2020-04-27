@@ -64,11 +64,11 @@ class Search extends Component {
             } else {
                 this.search(this.state.url + this.state.currentText)
             }
+            this.resetSearch()
         }
         if (e.keyCode === 32) {
             this.nameInput.focus()
         }
-        this.resetSearch()
     }
 
     search(url) {
