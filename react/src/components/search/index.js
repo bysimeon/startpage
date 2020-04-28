@@ -167,7 +167,7 @@ class Search extends Component {
     resetSearch() {
         setTimeout(() => {
             window.location.reload()
-        }, 2000);
+        }, 15000);
     }
 
     componentDidMount() {
