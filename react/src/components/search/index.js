@@ -15,12 +15,12 @@ class Search extends Component {
         this.state = {
             currentText: "",
             searchMod: false,
-            searchEngine: "duckduckgo",
+            searchEngine: "ecosia",
             bookmark: false,
             key: false,
             background: false,
             color: false,
-            url: "https://duckduckgo.com/?q=",
+            url: "https://www.ecosia.org/search?q=",
             searching: false,
             possibleKeys: [],
             helper: false
@@ -121,12 +121,12 @@ class Search extends Component {
         } else {
             this.setState({
                 searchMod: false,
-                searchEngine: "duckduckgo",
+                searchEngine: "ecosia",
                 background: false,
                 bookmark: false,
                 color: false,
                 key: false,
-                url: "https://duckduckgo.com/?q="
+                url: "https://www.ecosia.org/search?q="
             })
         }
     }
